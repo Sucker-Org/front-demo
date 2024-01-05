@@ -1,0 +1,21 @@
+{
+  "name": "front-demo",
+  "version": "1.0.0",
+  "description": "front-demo",
+  "scripts": {
+    "test": "test",
+    "start": "node app",
+    "dev": "lite-server -c bs-config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sucker-Org/front-demo.git"
+  },
+  "keywords": [],
+  "author": "Eric",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "lite-server": "^2.6.1",
+    "typescript": "^5.3.3"
+  }
+}
