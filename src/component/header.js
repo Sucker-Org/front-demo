@@ -18,5 +18,3 @@ const header = () => {
     document.body.appendChild(script);
 }
 header();
-
-
