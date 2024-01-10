@@ -1,0 +1,122 @@
+<!--
+ * @Email: allen0101stanton@outlook.com
+ * @Author: Eric
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Grid布局</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                height: 100%;
+                background-color: #353535;
+            }
+
+            .container {
+                height: 100%;
+                display: grid;
+                gap: 10px;
+                padding: 10px;
+
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: 1fr 2fr 2fr 1fr;
+                grid-template-areas:
+                    "header header header"
+                    "sidebar main main"
+                    "sidebar section content"
+                    "footer footer footer";
+            }
+            .container > * {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2vw;
+                color: #000;
+            }
+
+            .container > * > span::first-letter{
+                text-transform: uppercase;
+            }
+
+            .header {
+                grid-column: 1/ 4
+                grid-row:1/ 2;
+                background: orange;
+                grid-area: header;
+            }
+
+            .sidebar {
+                background: lightgreen;
+                grid-area: sidebar;
+            }
+
+            .main {
+                background: palevioletred;
+                grid-area: main;
+            }
+
+            .section {
+                background: purple;
+                grid-area: section;
+            }
+
+            .content {
+                background: blueviolet;
+                grid-area: content;
+            }
+
+            .footer {
+                background: lightblue;
+                grid-area: footer;
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 10% 30% 30% 10%;
+                    grid-template-areas:
+                        "header"
+                        "sidebar"
+                        "main"
+                        "section"
+                        "content"
+                        "footer";
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header class="header">
+                <a href="/">home</a>
+                <span>header</span>
+            </header>
+            <sidebar class="sidebar"
+                ><span>sidebar</span>
+            </sidebar>
+            <main class="main">
+
+                <span>main</span>
+            </main>
+            <section class="section">
+                <span>section</span>
+            </section>
+            <content class="content">
+                <span>content</span>
+            </content>
+            <footer class="footer">
+                <span>footer</span>
+            </footer>
+        </div>
+
+
+    </body>
+</html>
