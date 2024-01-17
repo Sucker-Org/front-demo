@@ -24,15 +24,12 @@
                 height: 100%;
                 display: grid;
                 gap: 10px;
-                padding: 10px;
-
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: 1fr 2fr 2fr 1fr;
+                grid-template-columns: 260px 1fr 1fr;
+                grid-template-rows: 60px 2fr 2fr;
                 grid-template-areas:
-                    "header header header"
+                    "sidebar header header"
                     "sidebar main main"
                     "sidebar section content"
-                    "footer footer footer";
             }
             .container > * {
                 display: flex;
@@ -47,8 +44,8 @@
             }
 
             .header {
-                grid-column: 1/ 4
-                grid-row:1/ 2;
+                grid-column: 1/ 4;
+                grid-row:1 / 2;
                 background: orange;
                 grid-area: header;
             }
@@ -112,9 +109,6 @@
             <content class="content">
                 <span>content</span>
             </content>
-            <footer class="footer">
-                <span>footer</span>
-            </footer>
         </div>
 
 
