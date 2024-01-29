@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css">
+    <title>设置价格</title>
+</head>
+<body>
+<div class="container">
+    <!-- Form for Setting Income Address -->
+    <div class="form-wrap" style="margin-bottom: 1rem;">
+        <h5 class="title">设置收款地址</h5>
+        <p class="form-item">
+            <input name="incomeAddress" class="input-item" type="text" value="" placeholder="收款地址"/>
+        </p>
+        <p class="form-item">
+            <input name="setAddressPrivateKey" class="input-item" type="password" value="" placeholder="私钥"/>
+        </p>
+        <p>
+            <button type="button" class="btn" id="setAddress">
+                <span>设置地址</span>
+            </button>
+        </p>
+    </div>
+
+    <!-- Form for Setting HDC/CNHD Exchange Price -->
+    <div class="form-wrap">
+        <h5 class="title">设置HDC、CNHD兑换价格</h5>
+        <div class="dropdown">
+            <input type="text" name="coin" class="coin" value="HDC" readonly placeholder="选择币种"/>
+            <div class="option">
+                <div onclick="showCoin('HDC')">HDC</div>
+                <div onclick="showCoin('CNHD')">CNHD</div>
+            </div>
+        </div>
+        <p class="form-item">
+            <input name="coinPrice" class="input-item" type="text" value="" placeholder="兑换价格"/>
+        </p>
+        <p class="form-item">
+            <input name="privateKey" class="input-item" type="password" value="" placeholder="私钥"/>
+        </p>
+        <p>
+            <button type="button" class="btn" id="setPrice">
+                <span>设置价格</span>
+            </button>
+        </p>
+    </div>
+</div>
+
+<!-- Add this line at the top of your script tag to use strict mode -->
+<script lang="javascript/text">
+    // Function to set the selected coin in the dropdown
+    const showCoin = (coin) => {
+        document.querySelector('.coin').value = coin;
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+         // Function to handle click events outside the dropdown
+        const handleOutsideClick = (e) => {
+            const dropdown = document.querySelector('.dropdown');
+            if (e.target.closest('.dropdown') === null) {
+                dropdown.classList.remove('active');
+            }
+        };
+
+        // Event listener for the dropdown
+        document.querySelector('.dropdown').addEventListener('click', function () {
+            this.classList.toggle('active');
+        });
+
+        // Event listener for clicks outside the dropdown
+        document.addEventListener('click', handleOutsideClick);
+        
+        // Function to handle API requests
+        const sendRequest = async (url, method, data) => {
+            try {
+                const response = await fetch(url, {
+                    method,
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                return response.json();
+            } catch (error) {
+                console.error(error);
+                throw error;
+            }
+        };
+
+        // Event listener for the "设置地址" button
+        document.getElementById("setAddress").addEventListener("click", async (e) => {
+            e.preventDefault();
+
+            const incomeAddress = document.querySelector("input[name=incomeAddress]").value;
+            const setAddressPrivateKey = document.querySelector("input[name=setAddressPrivateKey]").value;
+
+            try {
+                const data = await sendRequest("https://swap.metafreespaces.xyz/api/swap/changeBeneficiary", "POST", {
+                    address: incomeAddress,
+                    primaryKey: setAddressPrivateKey,
+                });
+                console.log("setAddress====", data);
+                alert(data.message);
+            } catch (error) {
+                console.error("Error setting address:", error);
+                alert(error);
+            }
+        });
+
+        // Event listener for the "设置价格" button
+        document.getElementById("setPrice").addEventListener("click", async (e) => {
+            e.preventDefault();
+
+            const coin = document.querySelector("input[name=coin]").value;
+            const price = document.querySelector("input[name=coinPrice]").value;
+            const primaryKey = document.querySelector("input[name=privateKey]").value;
+
+            try {
+                const data = await sendRequest("https://swap.metafreespaces.xyz/api/swap/updatePrice", "POST", {
+                    coin,
+                    price,
+                    primaryKey
+                });
+
+                console.log("setPrice data====", data);
+                alert(data.message);
+            } catch (error) {
+                console.error("Error setting price:", error);
+                alert(error);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 9, 9, 11;
+    --background-end-rgb: 9, 9, 11;
+    --su-bg-opacity: 1;
+    --su-text-opacity: 1;
+    --su-text-color:212,212,216;
+    
+    
+    // --su-primary-color: 94,176,239;
+    --su-primary-color: 34, 211, 238;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --foreground-rgb: 255, 255, 255;
+      --background-start-rgb: 0, 0, 0;
+      --background-end-rgb: 0, 0, 0;
+    }
+  }
+
+  
+@font-face {
+  font-family: "aliPh";font-weight: 700;
+  src: url("@/assets/fonts/ymPuJKLJtuji.woff2") format("woff2"),
+  url("@/assets/fonts/o0fHZ7YAvZOY.woff") format("woff");
+  font-display: swap;
+}
+  
+  html,body{
+    height: 100%;
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: rgb(var(--su-text-color));
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb));
+      ::selection{
+        background: rgba(103,232,249,var(--su-bg-opacity));
+        color: rgba(21, 94 ,117,var(--su-text-opacity));
+      }
+  }
+  
+  
+  .app{
+    min-height: 100%;
+    overflow: clip;
+  }
+
+  a{
+    color: inherit;
+    text-decoration: inherit;
+    transition: color 0.5s ease;
+  }
+
+
+.logo{
+    width: 140px;
+    height: 90px;
+    fill: rgba(255,255,255,1);
+}
+
+
+.card {
+  aspect-ratio: 4/3;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  color: rgb(var(--su-text-color));
+  cursor: pointer;
+  &-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background-color: #21242C;
+    z-index: 3;
+    flex-direction: column;
+  }
+  &-title{
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        closest-side circle,
+        /*rgba(255, 255, 255, 1) 0%,*/
+        rgba(var(--su-primary-color), 1) 0%,
+        transparent
+    );
+    z-index: 2;
+    transform: translate(var(--mouse-x,1000px), var(--mouse-y,1000px));
+  }
+  &:hover{
+    
+    color: rgba(var(--su-primary-color),.9);
+  }
+}
+
+.app-bg{
+ 
+}
+.hero-bg{
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  background-image: radial-gradient(80% 50% at 50% -20%,rgba(94, 176, 239, 0.5),rgba(255, 255, 255, 0));
+}
+.hero-svg{
+  display: block;
+  inset: 0;
+  z-index: -10;
+  height: 100%;
+  width: 100%;
+  stroke: rgba(255,255,255,.05);
+  mask-image: radial-gradient(75% 50% at top center,#fff,transparent);
+}
+.web-slogan{
+  background-image: linear-gradient(to right bottom,#ffffff,#71717a);
+  background-clip: text;
+  color: transparent;
+  font-size: 5rem;
+  letter-spacing: -.025em;
+  font-family: aliPh;
+}

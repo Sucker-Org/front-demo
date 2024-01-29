@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ESNEXT",
+    "module": "ESNEXT",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": true,
+    "downlevelIteration": true,
+    "jsx": "react-jsx",
+    "lib": ["ESNEXT", "DOM"],
+    "sourceMap": true,
+    "outDir": "./dist/",
+    "paths": {
+      "@/*": ["./src/*"],
+    },
+    "plugins": [{"name": "typescript-plugin-css-modules"}],
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*","src/**/*.d.ts","src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
