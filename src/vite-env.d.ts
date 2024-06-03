@@ -24,9 +24,9 @@ declare module '*.module.scss' {
   export default classes;
 }
 
-/* declare interface Window {
+declare interface Window {
   ethereum: any
-} */
+}
 
 /* declare module '*.svg' {
   import React from 'react';

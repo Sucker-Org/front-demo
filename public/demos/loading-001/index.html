@@ -1,0 +1,104 @@
+<!--
+ * @Email: allen0101stanton@outlook.com
+ * @Author: Eric
+ * @Description: 
+-->
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>跑马灯loading</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background: #042104;
+                animation: changeBg 10s linear infinite;
+            }
+            .loading-wrap {
+                position: relative;
+                width: 120px;
+                height: 120px;
+                
+            }
+            @keyframes changeBg {
+                from {
+                    filter: hue-rotate(0deg);
+                }
+                to {
+                    filter: hue-rotate(360deg);
+                }
+            }
+            .loading-wrap span {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                transform: rotate(calc(var(--i) * 18deg));
+            }
+            .loading-wrap span::before {
+                --point-color: #00ff0a;
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 15px;
+                height: 15px;
+                background: var(--point-color);
+                box-shadow:
+                    0 0 10px var(--point-color),
+                    0 0 20px var(--point-color),
+                    0 0 40px var(--point-color),
+                    0 0 80px var(--point-color),
+                    0 0 100px var(--point-color);
+                border-radius: 50%;
+                animation: scale 1s infinite linear;
+                animation-delay: calc(var(--i) * 0.1s);
+            }
+
+            @keyframes scale {
+                0% {
+                    transform: scale(1);
+                }
+                80%,100% {
+                    transform: scale(0);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="loading-wrap">
+                <span style="--i: 1"></span>
+                <span style="--i: 2"></span>
+                <span style="--i: 3"></span>
+                <span style="--i: 4"></span>
+                <span style="--i: 5"></span>
+                <span style="--i: 6"></span>
+                <span style="--i: 7"></span>
+                <span style="--i: 8"></span>
+                <span style="--i: 9"></span>
+                <span style="--i: 10"></span>
+                <span style="--i: 11"></span>
+                <span style="--i: 12"></span>
+                <span style="--i: 13"></span>
+                <span style="--i: 14"></span>
+                <span style="--i: 15"></span>
+                <span style="--i: 16"></span>
+                <span style="--i: 17"></span>
+                <span style="--i: 18"></span>
+                <span style="--i: 19"></span>
+                <span style="--i: 20"></span>
+            </div>
+        </div>
+    </body>
+</html>

@@ -18,6 +18,7 @@ const App: React.FunctionComponent = () => {
         { name: 'ring-shaped', url: '/demos/ring-shaped/index.html' },
         { name: 'setPrice', url: '/demos/setPrice/index.html' },
         { name: 'dingDing', url: '/demos/dingDing/index.html' },
+        { name: 'loading-001', url: '/demos/loading-001/index.html' },
     ];
     useEffect(() => {
         const container = containerRef.current;
@@ -63,7 +64,7 @@ const App: React.FunctionComponent = () => {
                     <h1 className="text-center web-slogan">Sucker Front-end Demos</h1>
                     <p className="text-center">Wang Wang && Eric</p>
                 </div>
-                <div className="grid text-center pt-5" id="demoList" ref={containerRef}>
+                <div className="grid text-center pt-5" ref={containerRef}>
                     {
                         demoList.map((item, index) => {
                             return (
