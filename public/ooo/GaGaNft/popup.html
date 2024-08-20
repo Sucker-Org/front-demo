@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="button.css">
+    <style>
+    body{width:1000px;margin:0 auto;}
+.gaga-wrap{width:100%;margin:0 auto;}
+.gaga-header{box-sizing: border-box;padding: 0 10px; display:flex;justify-content:space-between;height: 90px;background: #fff; position: relative;align-items:center;margin-bottom: 20px;
+    box-shadow: 0px 0px 0px rgb(6 44 82 / 10%), 0px 1px 3px rgb(64 66 69 / 12%), 0px 2px 16px rgb(33 43 54 / 8%);}
+/*.shadow::before, .shadow::after {
+   content: "";
+    position: absolute;
+    z-index: -1;
+}
+.shadow::before,.shadow::after{content:"";position:absolute;z-index:-1;bottom:15px;left:10px;width:50%;height:20%;}
+.shadow::before,.shadow::after{content:"";position:absolute;z-index:-1;bottom:15px;left:10px;width:50%;height:20%;box-shadow:0 15px 10px rgba(0,0,0,0.7);transform:rotate(-3deg);}
+.shadow::after{right:10px;left:auto;transform:rotate(3deg);}*/
+
+.gaga-logo img {
+    width: 50px;
+}
+
+.gaga-topbar {
+
+    /*background: linear-gradient(94.95deg, #FFE701 -1.41%, #FA51D3 34.12%, #10D9ED 70.19%, #52FF53 101.95%);*/
+    background: #8302e3;
+    color: #FFFFFF;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    font-weight: 500;
+    line-height: 14px;
+    justify-content: center;
+}
+
+.gaga-nav {
+    padding: 30px 0;
+    width: 300px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.gaga-nav button {
+    transition-duration: .5s;
+    transition-property: transform;
+    border: none;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.gaga-nav button:hover {
+    animation: jss30;
+    transform: translateY(-6px);
+    animation-delay: .3s;
+    animation-duration: 1.5s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.gaga-tab-hd {
+    display: flex;
+    overflow: hidden;
+    min-height: 48px;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.gaga-tab-hd-scroller {
+        width: 100%;
+    flex: 1 1 auto;
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+}
+
+.gaga-tab-hd-list {
+    display: flex;
+}
+
+.tab-item {
+    overflow: hidden;
+    position: relative;
+    margin-left: 18px;
+    margin-right: 18px;
+}
+.gaga-tab-pane{
+    display: none;
+}
+.gaga-tab-pane.active{
+    display: block;
+}
+</style>
+  </head>
+  <body>
+    <div class="popup-root gaga-wrap">
+        <div class="gaga-topbar"><span>GaGaNft Release - 0.0.1</span></div>
+        <div class="shadow gaga-header">
+            <div class="gaga-logo"><img src="/images/icon.png"></div>
+            <div class="gaga-address">xxxxxx</div>
+            <div class="gaga-user">user</div>
+        </div>
+        <div class="gaga-body">
+            <div class="gaga-nav">
+                <button id="deposit">Deposit</button>
+                <button id="send">Send</button>
+                <button id="swap">Swap</button>
+            </div>
+            <div class="gaga-tabs">
+                <div class="gaga-tab-hd">
+                    <div class="gaga-tab-hd-scroller">
+                        <div class="gaga-tab-hd-list">
+                        <button class="tab-item">Tokens</button>
+                        <button class="tab-item">NFTs</button>
+                        <button class="tab-item">Apps</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="gaga-tab-bd">
+                    <div class="gaga-tab-pane active">Tokens pane
+
+                        <button id="changeColor"></button><br/>
+                        
+                        <div class="download-button-container hover-animation"><div class="download-button-glow"></div><div class="download-button-rainbow"><a href="https://chrome.google.com/webstore/detail/plug/cfbfdhimifdmdehjmkdobpcjfefblkjm" target="_blank" rel="noopener noreferrer" class="download-button"><span class="nav-container">Download</span></a></div></div>
+
+                    </div>
+                    <div class="gaga-tab-pane">NFTs pane</div>
+                    <div class="gaga-tab-pane">Apps pane</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+
+    <style type="text/css">
+    .download-button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin: 0 auto;
+      width: min-content;
+      z-index: 10;
+    }
+
+    .download-button-container .download-button {
+      margin: auto;
+      display: flex;
+      width: max-content;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 24px;
+      color: #FFFFFF;
+      padding: 18px;
+      background: #111827;
+      border-radius: 15px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .download-button-container .download-button .chrome-logo {
+      width: 35px;
+      height: 35px;
+      margin-right: 13px;
+    }
+
+    .download-button-container .download-button-rainbow {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(96.38deg, #FFE701 -0.67%, #FA51D3 31.53%, #10D9ED 61.61%, #5FFF60 100.67%);
+      border-radius: 15px;
+      padding: 3px;
+      z-index: 10;
+    }
+
+    .download-button-container .download-button-glow {
+      position: absolute;
+      padding: 5px;
+      background: linear-gradient(96.38deg, #FFE701 -0.67%, #FA51D3 31.53%, #10D9ED 61.61%, #5FFF60 100.67%);
+      border-radius: 15px;
+      width: 100%;
+      height: 100%;
+      filter: blur(10px);
+    }
+    
+    </style>
+
+以最小权限约束插件，permissions 字段如果写了你应用中没用到（或者不必要）的权限，在提交审核时会被拒绝。注意 tabs 绝大部分API是不需要申请这个 tabs 权限的。
+如果涉及跨域请求，需要在 host_permissions 里面配置域名，当然你也可以用 <all_urls> ，更好的注重用户隐私的做法是实事求是，用到哪些列哪些，因为这个配置文件会存在用户的硬盘上，这会引起用户担忧。
+如果涉及 webRequest 拦截请求，比如监听用户翻页了（其实就是监听 getMore 的接口请求完成了），需要把你要监听的请求域名配置在 permissions。
+background 中保持后台脚本持续活动的唯一情况是扩展使用 chrome.webRequest API 来阻止或修改网络请求。webRequest API 与非持久性后台页面不兼容。默认情况下，"persistent"设置为 true。
+无论是 matches 、resources 还是 host_permissions 都可以用通配符描述。
+插件中用到的静态资源都需要在 web_accessible_resources 中配置。
+content_scripts 中的资源是按照你列表中的顺序加载到页面中的，请注意依赖关系的先后顺序。
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn" data-mui-color-scheme="dark">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>lucker.app Extension</title>
+        <style>
+            :root {
+                -mui-palette-primary-main: #fff;
+                --mui-palette-primary-contrastText: #628f54;
+                --mui-palette-primary-light: rgb(255, 255, 255);
+                --mui-palette-primary-dark: rgb(178, 178, 178);
+                --mui-palette-primary-mainChannel: 255 255 255;
+                --mui-palette-primary-lightChannel: 255 255 255;
+                --mui-palette-primary-darkChannel: 178 178 178;
+                --mui-palette-primary-contrastTextChannel: 98 143 84;
+                --mui-palette-background-default: #ffffff;
+                --mui-palette-background-defaultChannel: #e1e5e7;
+                --mui-palette-background-paper: #fff;
+                --mui-palette-text-primary: #000;
+                --mui-palette-text-secondary: rgba(0, 0, 0, 0.6);
+                --mui-palette-text-disabled: rgba(0, 0, 0, 0.38);
+                --mui-palette-text-primaryChannel: 0 0 0;
+                --mui-palette-text-secondaryChannel: 0 0 0;
+                --mui-palette-secondary-main: #4a99e9;
+                --mui-palette-secondary-mainChannel: #db716b;
+                --mui-palette-secondary-light: rgb(110, 173, 237);
+                --mui-palette-secondary-dark: rgb(51, 107, 163);
+                --mui-palette-secondary-contrastText: rgba(0, 0, 0, 0.87);
+                --mui-palette-secondary-lightChannel: 110 173 237;
+                --mui-palette-secondary-darkChannel: 51 107 163;
+                --mui-palette-secondary-contrastTextChannel: 0 0 0;
+                --mui-palette-gray-primary: #566370;
+                --mui-palette-gray-secondary: #e0e0e0;
+                --mui-palette-lineColorContainer: #d1d9dd;
+                --mui-palette-bgCard: #f0f3f4;
+                --mui-palette-bgModal: #f0f3f4;
+                --mui-palette-hover: #eff1f1;
+                --mui-palette-hover1: #e1e5e7;
+                --mui-palette-textError: #e74c3c;
+                --mui-palette-common-black: #000;
+                --mui-palette-common-white: #fff;
+                --mui-palette-common-background: #fff;
+                --mui-palette-common-onBackground: #000;
+                --mui-palette-common-backgroundChannel: 255 255 255;
+                --mui-palette-common-onBackgroundChannel: 0 0 0;
+                --mui-palette-error-main: #d32f2f;
+                --mui-palette-error-light: #ef5350;
+                --mui-palette-error-dark: #c62828;
+                --mui-palette-error-contrastText: #fff;
+                --mui-palette-error-mainChannel: 211 47 47;
+                --mui-palette-error-lightChannel: 239 83 80;
+                --mui-palette-error-darkChannel: 198 40 40;
+                --mui-palette-error-contrastTextChannel: 255 255 255;
+                --mui-palette-warning-main: #ed6c02;
+                --mui-palette-warning-light: #ff9800;
+                --mui-palette-warning-dark: #e65100;
+                --mui-palette-warning-contrastText: #fff;
+            }
+            html {
+                height: 100%;
+            }
+            body {
+                margin: 0px;
+                color: var(--mui-palette-text-primary);
+                font-family: TwitterChirp;
+                font-weight: 400;
+                font-size: 1rem;
+                line-height: 1.5;
+                background-color: var(--mui-palette-background-default);
+            }
+            .gaga-wrap {
+                margin-left: auto;
+                box-sizing: border-box;
+                margin-right: auto;
+                display: block;
+                width: 421px;
+                height: 600px;
+                background-color: var(--mui-palette-primary-main);
+            }
+            #start {
+                background-color: var(--mui-palette-secondary-main);
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="popup-root gaga-wrap">
+            test game
+
+            <button type="button" id="start">start</button>
+            <button type="button" id="self">self</button>
+            
+            <script src="./background.js"></script>
+            
+        </div>
+    </body>
+</html>
